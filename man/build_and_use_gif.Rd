@@ -5,7 +5,8 @@
 \title{Title}
 \usage{
 build_and_use_gif(href, dir, pattern, static_file = select_static(dir,
-  pattern), gif_file = paste0(pattern, ".gif"), num_in_gif = NULL)
+  pattern), gif_file = paste0(dir, "/viztoc_", pattern, ".gif"),
+  num_in_gif = NULL)
 }
 \arguments{
 \item{num_in_gif}{}
