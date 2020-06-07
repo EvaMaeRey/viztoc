@@ -45,17 +45,15 @@ create_html_use_static_and_gif <- function(static_file,
                                            gif_file,
                                            href = "https://github.com/EvaMaeRey/flipbookr",
                                            width = 200,
-                                           height = 200,
-                                           title = ""){
+                                           height = 200){
 
   paste0(
     '<a href="',
     href,
     '" target="_blank">',
-    '<img class="static" width = ', width, ', height = ', height,
-    'title=' , title, ', src="',
+    '<img class="static" width = ', width, ', height = ', height,  ', src="',
     static_file,
-    '"><img class="active" title=' , title, ', src="',
+    '"><img class="active" src="',
     gif_file,
     '">',
     '</a>')
@@ -102,8 +100,7 @@ build_and_use_gif <- function(href,
                               static_file = select_static(dir, pattern, which),
                               gif_file = paste0(dir, "/viztoc_", pattern, ".gif"),
                               num_in_gif = NULL,
-                              cached_gif = TRUE,
-                              title = ""){
+                              cached_gif = TRUE){
 
   if (cached_gif == FALSE | !file.exists(gif_file)) {
 
@@ -120,8 +117,7 @@ build_and_use_gif <- function(href,
                                  static_file = static_file,
                                  gif_file = gif_file,
                                  width = width,
-                                 height = height,
-                                 title = title)
+                                 height = height)
 
 }
 

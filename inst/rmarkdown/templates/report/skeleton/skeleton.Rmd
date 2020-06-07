@@ -14,11 +14,11 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache = T)
 ```
 
 
-```{r}
+```{r, cache=FALSE}
 library(tidyverse)
 library(flipbookr)
 # library(viztoc)
@@ -29,7 +29,10 @@ try(source("../../../../../R/visual_table_of_contents.R"))
 ---
 
 
-`r build_and_use_gif(dir = "skeleton_files/figure-html/", width = 200, height = 200, cached_gif = F, pattern = "cars", href = "skeleton.html#cars", which = 5, title = "hello there")`
+<!-- These will actually not build without visualization chunks creating pngs, and will throw an error. So disactivate first - remove first backtick. -->
+
+
+`r build_and_use_gif(dir = "skeleton_files/figure-html/", width = 200, height = 200, cached_gif = F, pattern = "cars", href = "skeleton.html#cars", which = 5)`
 
 `r build_and_use_gif(dir = "skeleton_files/figure-html/", width = 200, height = 200, cached_gif = F, pattern = "pressure", href = "skeleton.html#mypressure", which = 5)`
 
