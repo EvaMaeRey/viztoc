@@ -4,9 +4,10 @@
 \alias{build_and_use_gif}
 \title{Title}
 \usage{
-build_and_use_gif(href, dir, pattern, static_file = select_static(dir,
-  pattern), gif_file = paste0(dir, "/viztoc_", pattern, ".gif"),
-  num_in_gif = NULL)
+build_and_use_gif(href, dir, pattern = "", which = 5, width = 100,
+  height = 100, static_file = select_static(dir, pattern, which),
+  gif_file = paste0(dir, "/viztoc_", pattern, ".gif"),
+  num_in_gif = NULL, cached_gif = TRUE)
 }
 \arguments{
 \item{num_in_gif}{}
