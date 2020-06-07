@@ -1,0 +1,84 @@
+---
+title: "Untitled"
+author: "Evangeline Reynolds"
+date: "6/6/2020"
+output: 
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, hygge, ninjutsu]
+    nature:
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(tidyverse)
+library(flipbookr)
+# library(viztoc)
+try(source("../../../../../R/visual_table_of_contents.R"))
+```
+
+
+---
+
+
+`r build_and_use_gif(dir = "skeleton_files/figure-html/", width = 200, height = 200, cached_gif = F, pattern = "cars", href = "skeleton.html#cars", which = 5, title = "hello there")`
+
+`r build_and_use_gif(dir = "skeleton_files/figure-html/", width = 200, height = 200, cached_gif = F, pattern = "pressure", href = "skeleton.html#mypressure", which = 5)`
+
+
+
+---
+name: cars
+
+`r chunk_reveal("my_cars")`
+
+```{r my_cars, include = F}
+cars %>% 
+ggplot() +
+  theme_bw(base_size = 30) +
+  aes(x = speed) +
+  aes(y = dist) +
+  geom_point(size = 5)
+```
+
+---
+name: mypressure
+
+`r chunk_reveal("my_pressure")`
+
+```{r my_pressure, include = F}
+pressure %>% 
+ggplot() +
+  theme_minimal(base_size = 30) +
+  aes(x = temperature) +
+  aes(y = pressure) +
+  geom_point(size = 5) +
+  scale_y_log10()
+```
+
+
+
+```{css}
+.static {
+  position:absolute;
+  background: white;
+}
+
+.static:hover {
+  opacity:0;
+}
+```
+
+
+
+
+
+

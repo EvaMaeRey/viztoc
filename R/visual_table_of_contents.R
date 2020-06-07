@@ -1,9 +1,12 @@
 ##### Build gif #####
 
 build_gif <- function(dir,
-                      pattern = dir,
+                      pattern = "",
                       gif_file = paste0(dir, "/viztoc", pattern, ".gif"),
-                      num_in_gif = NULL){
+                      num_in_gif = NULL,
+                      width = 100,
+                      height = 100,
+                      delay = .3){
 
 
   files <- list.files(path = dir, pattern = pattern)
@@ -13,10 +16,13 @@ build_gif <- function(dir,
   files <- files[1:num_in_gif]
 
   file_path <- paste0(dir, files)
-  gifski::gifski(png_files = file_path, progress = F,
+
+  gifski::gifski(png_files = file_path,
+                 progress = F,
                  gif_file = gif_file,
-                 delay = .2,
-                 width = 100, height = 100)
+                 delay = delay,
+                 width = width,
+                 height = height)
 
 }
 
@@ -35,15 +41,21 @@ select_static <- function(dir, pattern, which = 3){
 
 #### create html use static and gif  ####
 
-create_html_use_static_and_gif <- function(static_file, gif_file, href = "https://github.com/EvaMaeRey/flipbookr"){
+create_html_use_static_and_gif <- function(static_file,
+                                           gif_file,
+                                           href = "https://github.com/EvaMaeRey/flipbookr",
+                                           width = 200,
+                                           height = 200,
+                                           title = ""){
 
   paste0(
     '<a href="',
     href,
     '" target="_blank">',
-    '<img class="static" width = 100, height = 100 src="',
+    '<img class="static" width = ', width, ', height = ', height,
+    'title=' , title, ', src="',
     static_file,
-    '"><img class="active" src="',
+    '"><img class="active" title=' , title, ', src="',
     gif_file,
     '">',
     '</a>')
@@ -83,16 +95,33 @@ write_css_static_hover <- function(){
 #' @examples
 build_and_use_gif <- function(href,
                               dir,
-                              pattern,
-                              static_file = select_static(dir, pattern),
+                              pattern = "",
+                              which = 5,
+                              width = 100,
+                              height = 100,
+                              static_file = select_static(dir, pattern, which),
                               gif_file = paste0(dir, "/viztoc_", pattern, ".gif"),
-                              num_in_gif = NULL){
+                              num_in_gif = NULL,
+                              cached_gif = TRUE,
+                              title = ""){
 
-  build_gif(dir = dir, pattern = pattern, gif_file = gif_file, num_in_gif = num_in_gif)
+  if (cached_gif == FALSE | !file.exists(gif_file)) {
+
+  build_gif(dir = dir,
+            pattern = pattern,
+            gif_file = gif_file,
+            num_in_gif = num_in_gif,
+            width = width,
+            height = height)
+
+  }
 
   create_html_use_static_and_gif(href = href,
                                  static_file = static_file,
-                                 gif_file = gif_file)
+                                 gif_file = gif_file,
+                                 width = width,
+                                 height = height,
+                                 title = title)
 
 }
 
@@ -100,7 +129,10 @@ knitr::opts_chunk$set(echo = F, eval = T, message = F, warning = F, cache = F)
 
 
 
-#### Save plot from chunk ####
+
+
+
+#### Save plot from chunk ##########
 
 save_chunk_plot <- function(chunk_name,
                             filename = chunk_name,
