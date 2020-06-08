@@ -97,6 +97,7 @@ build_and_use_gif <- function(href,
                               which = 5,
                               width = 100,
                               height = 100,
+                              delay = .2,
                               static_file = select_static(dir, pattern, which),
                               gif_file = paste0(dir, "/viztoc_", pattern, ".gif"),
                               num_in_gif = NULL,
@@ -109,7 +110,8 @@ build_and_use_gif <- function(href,
             gif_file = gif_file,
             num_in_gif = num_in_gif,
             width = width,
-            height = height)
+            height = height,
+            delay = delay)
 
   }
 

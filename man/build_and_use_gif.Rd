@@ -5,8 +5,8 @@
 \title{Title}
 \usage{
 build_and_use_gif(href, dir, pattern = "", which = 5, width = 100,
-  height = 100, static_file = select_static(dir, pattern, which),
-  gif_file = paste0(dir, "/viztoc_", pattern, ".gif"),
+  height = 100, delay = 0.2, static_file = select_static(dir,
+  pattern, which), gif_file = paste0(dir, "/viztoc_", pattern, ".gif"),
   num_in_gif = NULL, cached_gif = TRUE)
 }
 \arguments{
