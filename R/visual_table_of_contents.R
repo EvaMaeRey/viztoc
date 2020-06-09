@@ -86,6 +86,7 @@ write_css_static_hover <- function(){
 #' @param static_file
 #' @param gif_file
 #' @param num_in_gif
+#' @param delay
 #'
 #' @return
 #' @export
@@ -142,6 +143,7 @@ save_chunk_plot <- function(chunk_name,
     dir.create(dir)
 
   }
+
   eval(parse(text = paste(knitr::knit_code$get(chunk_name), collapse = "")))
   ggplot2::ggsave(paste0(dir, filename, type), dpi = 300)
 

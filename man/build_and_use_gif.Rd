@@ -10,7 +10,7 @@ build_and_use_gif(href, dir, pattern = "", which = 5, width = 100,
   num_in_gif = NULL, cached_gif = TRUE)
 }
 \arguments{
-\item{num_in_gif}{}
+\item{delay}{}
 }
 \description{
 Title
