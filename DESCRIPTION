@@ -15,5 +15,6 @@ Imports:
     ggplot2,
     knitr,
     gifski,
-    stringr
+    stringr,
+    webshot
 RoxygenNote: 6.1.1
