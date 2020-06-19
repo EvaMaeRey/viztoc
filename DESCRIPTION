@@ -16,5 +16,8 @@ Imports:
     knitr,
     gifski,
     stringr,
-    webshot
+    webshot,
+    fs,
+    magick,
+    pagedown
 RoxygenNote: 6.1.1
