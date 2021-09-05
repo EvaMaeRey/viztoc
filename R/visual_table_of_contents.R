@@ -1,8 +1,8 @@
 #### take webshots of flipbooks #####
 html_slide_show_take_webshots <- function(base_url =
-                         "https://evamaerey.github.io/data_manipulation/one_stream_wrangle.html",
+                         "file:///Users/evangelinereynolds/Google Drive/r_packages/viztoc/docs/minimal_flipbook.html",
                        dir = "test",
-                       num_pages,
+                       num_pages = 5,
                        pad_digits = 0) {
 
   if (!dir.exists(dir)) {dir.create(dir)}
@@ -83,7 +83,7 @@ create_html_use_static_and_gif <- function(static_file,
                                            gif_file,
                                            href = "https://github.com/EvaMaeRey/flipbookr",
                                            width = 200,
-                                           height = 200){
+                                           height = width*9/16){
 
   paste0(
     '<a href="',
@@ -91,7 +91,7 @@ create_html_use_static_and_gif <- function(static_file,
     '" target="_blank">',
     '<img class="static" width = ', width, ', height = ', height,  ', src="',
     static_file,
-    '"><img class="active" src="',
+    '"><img class="active" width = ', width, ', height = ', height,  ', src="',
     gif_file,
     '">',
     '</a>')
@@ -264,6 +264,9 @@ flipbook_webshots_build_and_use_gif(dir = "hi/",
                                     num_pages = 3,
                                     pattern = "",
                                     base_url = "https://evamaerey.github.io/tidyverse_in_action/one_stream_wrangle.html")
+
+
+# [1] "<a href=\"https://evamaerey.github.io/tidyverse_in_action/one_stream_wrangle.html\" target=\"_blank\"><img class=\"static\" width = 100, height = 100, src=\"NA\"><img class=\"active\" src=\"hi//viztoc_.gif\"></a>"
 
 
 #### Save plot from chunk ##########
